@@ -9,26 +9,6 @@ namespace RuleEngine
 {
     public class RuleEvaluator
     {
-        public void InvokeRules(PaymentInfo paymentInfo)
-        {
-            List<string> methodList = new List<string>();
-            var qualifiedRules = EvaluateQualifyingRules(paymentInfo);
-            StringBuilder sb = new StringBuilder();
-            foreach(Rule rule in qualifiedRules)
-            {
-                sb.Append(rule.MethodName);
-            }
-
-            methodList = sb.ToString().Split(';').ToList();
-
-            foreach(string methodName in methodList)
-            {
-                MethodExecutor me = new MethodExecutor();
-                Type methodType = me.GetType();
-                MethodInfo method = methodType.GetMethod(methodName);
-                object magicValue = method.Invoke(me, new object[] { paymentInfo.PaymentId });
-            }
-        }
 
         private List<Rule> GetRuleList()
         {
@@ -41,7 +21,7 @@ namespace RuleEngine
             return ruleList;
         }
 
-        private List<Rule> EvaluateQualifyingRules(PaymentInfo paymentInfo)
+        public List<Rule> EvaluateQualifyingRules(PaymentInfo paymentInfo)
         {
             var initialRuleList = GetRuleList();
             var ruleList = new List<Rule>();
