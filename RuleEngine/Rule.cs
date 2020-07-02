@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace RuleEngine
 {
+    /// <summary>
+    /// This class hold structure of a rule
+    /// </summary>
     public class Rule
     {
         public string RuleName { get; set; }

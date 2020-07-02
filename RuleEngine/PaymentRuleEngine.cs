@@ -9,6 +9,10 @@ namespace RuleEngine
 {
     public class PaymentRuleEngine
     {
+        /// <summary>
+        /// This is entry point of rule engine.This class dynamically invokes method based on selected rules
+        /// </summary>
+        /// <param name="paymentInfo"></param>
         public void InvokeRules(PaymentInfo paymentInfo)
         {
             List<string> methodList = new List<string>();
@@ -23,12 +27,13 @@ namespace RuleEngine
             var methodCount = methodList.Count;
             methodList.RemoveAt(--methodCount);
 
+            //Dynamically invoking methods
             foreach (string methodName in methodList)
             {
                 MethodExecutor me = new MethodExecutor();
                 Type methodType = me.GetType();
                 MethodInfo method = methodType.GetMethod(methodName);
-                object magicValue = method.Invoke(me, new object[] { paymentInfo.PaymentId });
+                object result = method.Invoke(me, new object[] { paymentInfo.PaymentId });
             }
         }
     }

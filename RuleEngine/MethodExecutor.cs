@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace RuleEngine
 {
+    /// <summary>
+    /// This class hold all the methods to be invoked dynamically based on qualifyin rule
+    /// </summary>
     public class MethodExecutor
     {
         public string GeneratePackagingSlipShipping(int paymentid)

@@ -7,9 +7,15 @@ using System.Threading.Tasks;
 
 namespace RuleEngine
 {
+    /// <summary>
+    /// This class contains methods that evaluates rule
+    /// </summary>
     public class RuleEvaluator
     {
-
+        /// <summary>
+        /// Getting list of static rules
+        /// </summary>
+        /// <returns>List of all rules</returns>
         private List<Rule> GetRuleList()
         {
             List<Rule> ruleList = new List<Rule>();
@@ -21,6 +27,11 @@ namespace RuleEngine
             return ruleList;
         }
 
+        /// <summary>
+        /// Evauluate payment is qualified for which rule(s)
+        /// </summary>
+        /// <param name="paymentInfo">PaymentInfo</param>
+        /// <returns>List of qualified rules</returns>
         public List<Rule> EvaluateQualifyingRules(PaymentInfo paymentInfo)
         {
             var initialRuleList = GetRuleList();

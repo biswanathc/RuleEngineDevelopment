@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace RuleEngine
 {
+    /// <summary>
+    /// This class hold properties of a payment object
+    /// </summary>
     public class PaymentInfo
     {
         public int PaymentId { get; set; }
