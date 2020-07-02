@@ -13,7 +13,7 @@ namespace RuleEngine
         /// This is entry point of rule engine.This class dynamically invokes method based on selected rules
         /// </summary>
         /// <param name="paymentInfo"></param>
-        public void InvokeRules(PaymentInfo paymentInfo)
+        public List<string> ProcessPayment(PaymentInfo paymentInfo)
         {
             List<string> methodList = new List<string>();
             var qualifiedRules = new RuleEvaluator().EvaluateQualifyingRules(paymentInfo);
@@ -26,7 +26,7 @@ namespace RuleEngine
             methodList = sb.ToString().Split(';').ToList();
             var methodCount = methodList.Count;
             methodList.RemoveAt(--methodCount);
-
+            List<string> finalResult = new List<string>();
             //Dynamically invoking methods
             foreach (string methodName in methodList)
             {
@@ -34,7 +34,10 @@ namespace RuleEngine
                 Type methodType = me.GetType();
                 MethodInfo method = methodType.GetMethod(methodName);
                 object result = method.Invoke(me, new object[] { paymentInfo.PaymentId });
+                finalResult.Add(result.ToString());
             }
+
+            return finalResult;
         }
     }
 }

@@ -9,3 +9,5 @@
 /RuleEngine/.vs/RuleEngine/v15/Server/sqlite3
 /RuleEngine/obj/Debug
 /RuleEngine/.vs/RuleEngine/v16
+/RuleEngine.Test/bin/Debug
+/RuleEngine.Test/obj/Debug

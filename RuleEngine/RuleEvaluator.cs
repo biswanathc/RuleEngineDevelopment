@@ -19,11 +19,11 @@ namespace RuleEngine
         private List<Rule> GetRuleList()
         {
             List<Rule> ruleList = new List<Rule>();
-            ruleList.Add(new Rule() { RuleName = "PhysicalProduct", MethodName = "GeneratePackagingSlipShipping;GenerateCommision:" });
-            ruleList.Add(new Rule() { RuleName = "Book", MethodName = "GeneratePackagingSlipRoyalty;GenerateCommision:" });
-            ruleList.Add(new Rule() { RuleName = "Membership", MethodName = "ActivateMembership;SendMail:" });
-            ruleList.Add(new Rule() { RuleName = "UpgradeMembership", MethodName = "UpgradeMembership;SendMail:" });
-            ruleList.Add(new Rule() { RuleName = "SpecialVideo", MethodName = "FreeVideo:" });
+            ruleList.Add(new Rule() { RuleName = "PhysicalProduct", MethodName = "GeneratePackagingSlipShipping;GenerateCommision;" });
+            ruleList.Add(new Rule() { RuleName = "Book", MethodName = "GeneratePackagingSlipRoyalty;GenerateCommision;" });
+            ruleList.Add(new Rule() { RuleName = "Membership", MethodName = "ActivateMembership;SendMail;" });
+            ruleList.Add(new Rule() { RuleName = "UpgradeMembership", MethodName = "UpgradeMembership;SendMail;" });
+            ruleList.Add(new Rule() { RuleName = "SpecialVideo", MethodName = "FreeVideo;" });
             return ruleList;
         }
 
